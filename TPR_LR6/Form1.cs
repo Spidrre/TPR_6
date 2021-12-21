@@ -28,8 +28,8 @@ namespace TPR_LR6
         {
             try
             {
-                this.stocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-                this.stocksTableAdapter = new TPR_LR6.DatabaseTableAdapters.StocksTableAdapter();
+                //this.stocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+                //this.stocksTableAdapter = new TPR_LR6.DatabaseTableAdapters.StocksTableAdapter();
                 MessageBox.Show("Your data has been saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch(Exception ex)
@@ -41,7 +41,7 @@ namespace TPR_LR6
         private void Form1_Load(object sender, EventArgs e)
         {
             // TODO: данная строка кода позволяет загрузить данные в таблицу "database.Stocks". При необходимости она может быть перемещена или удалена.
-            this.stocksTableAdapter.Fill(this.database.Stocks);
+            //this.stocksTableAdapter.Fill(this.database.Stocks);
             dt = new DataTable();
             comboBox1.SelectedItem = comboBox1.Items[1];
             comboBox1.Visible = false;
@@ -55,7 +55,11 @@ namespace TPR_LR6
 
             btnLoad.Visible = false;
             brnSave.Visible = false;
-            //dataGridView1.Visible = false;
+
+
+
+            //dlya data grid view
+            dataGridView1.Visible = false;
 
         }
 
@@ -126,8 +130,8 @@ namespace TPR_LR6
                 btnEase.Visible = true;
                 btnClear.Visible = true;
                 
-                this.stocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-                this.stocksTableAdapter = new TPR_LR6.DatabaseTableAdapters.StocksTableAdapter();
+                //this.stocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
+                //this.stocksTableAdapter = new TPR_LR6.DatabaseTableAdapters.StocksTableAdapter();
                 //MessageBox.Show("Your data has been saved", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 chart1.ChartAreas["ChartArea1"].AxisX.MajorGrid.LineWidth = 1;
                 chart1.ChartAreas["ChartArea1"].AxisY.MajorGrid.LineWidth = 1;

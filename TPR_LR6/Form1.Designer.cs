@@ -38,6 +38,7 @@ namespace TPR_LR6
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnBol = new System.Windows.Forms.Button();
             this.btnPVT = new System.Windows.Forms.Button();
             this.btnOBV = new System.Windows.Forms.Button();
             this.btnEase = new System.Windows.Forms.Button();
@@ -56,17 +57,16 @@ namespace TPR_LR6
             this.brnSave = new System.Windows.Forms.Button();
             this.btnLoad = new System.Windows.Forms.Button();
             this.stocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.database = new TPR_LR6.Database();
-            this.stocksTableAdapter = new TPR_LR6.DatabaseTableAdapters.StocksTableAdapter();
+            //this.database = new TPR_LR6.Database();
+            //this.stocksTableAdapter = new TPR_LR6.DatabaseTableAdapters.StocksTableAdapter();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.btnBol = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource)).BeginInit();
+            //((System.ComponentModel.ISupportInitialize)(this.database)).BeginInit();
             this.SuspendLayout();
             // 
             // chart1
@@ -137,6 +137,16 @@ namespace TPR_LR6
             this.groupBox3.TabIndex = 13;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Oscillators";
+            // 
+            // btnBol
+            // 
+            this.btnBol.Location = new System.Drawing.Point(155, 40);
+            this.btnBol.Name = "btnBol";
+            this.btnBol.Size = new System.Drawing.Size(146, 23);
+            this.btnBol.TabIndex = 15;
+            this.btnBol.Text = "Bollinger Bands";
+            this.btnBol.UseVisualStyleBackColor = true;
+            this.btnBol.Click += new System.EventHandler(this.btnBol_Click);
             // 
             // btnPVT
             // 
@@ -267,7 +277,7 @@ namespace TPR_LR6
             this.domainUpDown1.Name = "domainUpDown1";
             this.domainUpDown1.Size = new System.Drawing.Size(126, 20);
             this.domainUpDown1.TabIndex = 6;
-            this.domainUpDown1.Text = "High";
+            this.domainUpDown1.Text = "Open";
             this.domainUpDown1.Wrap = true;
             this.domainUpDown1.SelectedItemChanged += new System.EventHandler(this.domainUpDown1_SelectedItemChanged);
             // 
@@ -325,31 +335,21 @@ namespace TPR_LR6
             // 
             // stocksBindingSource
             // 
-            this.stocksBindingSource.DataMember = "Stocks";
-            this.stocksBindingSource.DataSource = this.database;
+            //this.stocksBindingSource.DataMember = "Stocks";
+            //this.stocksBindingSource.DataSource = this.database;
             // 
             // database
             // 
-            this.database.DataSetName = "Database";
-            this.database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            //this.database.DataSetName = "Database";
+            //this.database.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // stocksTableAdapter
             // 
-            this.stocksTableAdapter.ClearBeforeFill = true;
+            //this.stocksTableAdapter.ClearBeforeFill = true;
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // btnBol
-            // 
-            this.btnBol.Location = new System.Drawing.Point(155, 40);
-            this.btnBol.Name = "btnBol";
-            this.btnBol.Size = new System.Drawing.Size(146, 23);
-            this.btnBol.TabIndex = 15;
-            this.btnBol.Text = "Bollinger Bands";
-            this.btnBol.UseVisualStyleBackColor = true;
-            this.btnBol.Click += new System.EventHandler(this.btnBol_Click);
             // 
             // Form1
             // 
@@ -369,7 +369,7 @@ namespace TPR_LR6
             this.groupBox2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.stocksBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.database)).EndInit();
+            //((System.ComponentModel.ISupportInitialize)(this.database)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -381,9 +381,9 @@ namespace TPR_LR6
         private System.Windows.Forms.Button btnLoad;
         private System.Windows.Forms.Button brnSave;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private Database database;
+        //private Database database;
         private System.Windows.Forms.BindingSource stocksBindingSource;
-        private DatabaseTableAdapters.StocksTableAdapter stocksTableAdapter;
+        //private DatabaseTableAdapters.StocksTableAdapter stocksTableAdapter;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ComboBox comboBox1;
