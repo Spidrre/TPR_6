@@ -117,10 +117,19 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>441, 17</value>
-  </metadata>
-  <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>81</value>
-  </metadata>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Для расчета индикатора легкости движения сначала определяется величина смещения средней точки (MM): 
+ ,
+где Ht – максимальная цена текущего дня,
+Lt – минимальная цена текущего дня,
+Ht-1 – максимальная цена предыдущего дня,
+Lt-1 – минимальная цена предыдущего дня.
+Затем вычисляется объемный коэффициент (BR):
+ ,
+где Vt − объем торгов в десятках тысяч единиц (акций, контрактов и т.д.) 
+ЕМV определяется как отношение смещения средней точки к объемному коэффициенту: 
+ ,
+а затем обычно сглаживается с помощью скользящего среднего.
+</value>
+  </data>
 </root>

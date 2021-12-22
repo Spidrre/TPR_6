@@ -60,6 +60,7 @@ namespace TPR_LR6
 
             //dlya data grid view
             dataGridView1.Visible = false;
+            dataGridView2.Visible = false;
 
         }
 
@@ -120,6 +121,8 @@ namespace TPR_LR6
             }
             //MessageBox.Show(rows[0][0]);
             //test();
+
+            
 
             try
             {
@@ -488,6 +491,7 @@ namespace TPR_LR6
             chart1.Update();
         }
 
+        
         private void brnSliding_Click(object sender, EventArgs e)
         {
             clear();
@@ -506,20 +510,39 @@ namespace TPR_LR6
                 chart1.Series["ease"].Legend = "Legend1";
                 chart1.Series["ease"].LegendText = "Ease of Movement";
 
+
+                dataGridView2.RowCount = dataGridView1.RowCount;
+                dataGridView2.ColumnCount = 3;
+
+                double scale = 0.0;
+                for (int i = 0; i < dataGridView1.RowCount; ++i)
+                {
+                    //scale += double.Parse(dataGridView1[6, i].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture);
+                    scale += Convert.ToDouble(dataGridView1[6, i].Value);
+                }
+                scale /= dataGridView1.RowCount;
+
                 for (int i = 1; i < dataGridView1.RowCount; ++i)
                 {
                     mm = (double.Parse(dataGridView1[3, i].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture) - double.Parse(dataGridView1[4, i].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture)) / 2;
                     mm -= (double.Parse(dataGridView1[3, i - 1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture) - double.Parse(dataGridView1[4, i - 1].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture)) / 2;
-
-                    br = (double.Parse(dataGridView1[6, i].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture)/10000.0);
+                    //mm *= 10000000000.0;
+                    //br = (double.Parse(dataGridView1[6, i].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture)/10000.0);
+                    br = (double.Parse(dataGridView1[6, i].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture)/scale);
                     br /= (double.Parse(dataGridView1[3, i].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture) - double.Parse(dataGridView1[4, i].Value.ToString(), System.Globalization.CultureInfo.InvariantCulture));
-
+                    
+                    
                     emv = mm/br;
+
+                    dataGridView2[0, i].Value = mm;
+                    dataGridView2[1, i].Value = br;
+                    dataGridView2[2, i].Value = emv;
                     chart1.Series["ease"].Points.AddXY(0, emv);
 
                 }
             }
-            catch { }
+            catch(Exception ee) { //MessageBox.Show(ee.Message); 
+            }
 
         }
 
@@ -842,6 +865,12 @@ namespace TPR_LR6
                 }
             }
             catch { }
+        }
+
+        private void btnHelp_Click(object sender, EventArgs e)
+        {
+            var f2 = new Form2();
+            f2.Show();
         }
 
         //public List<DataStocks> Read(string filePath)
